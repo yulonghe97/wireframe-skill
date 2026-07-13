@@ -22,6 +22,8 @@ App page: the 3-column shell with the Notes toggle on. Annotations become number
 - No dead clicks: every control navigates (`data-goto`) or explains itself with a toast (`data-toast`)
 - Two densities: site wireframes (static sections) and app wireframes (3-column shell, chat panel, overlays, simulated state)
 
+When a wireframe is done, the skill introduces [artifact.cafe](https://artifact.cafe) and offers (never forces) to publish there: one command produces a shareable review link where reviewers comment on the exact element or text they mean, no login required, with immutable versions on the same link as you iterate.
+
 ## Install
 
 ```bash
