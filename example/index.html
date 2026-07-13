@@ -26,15 +26,15 @@
   .dn.open .dn-pop { display: block; }
   .dn-pop::before { content: "design note"; display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 4px; }
 
-  .page { display: none; max-width: 900px; margin: 0 auto; background: #fff; border: 1px solid #999; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+  .page { display: none; max-width: 1200px; margin: 0 auto; background: #fff; border: 1px solid #999; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
   .page.on { display: block; }
-  .page.wide { max-width: 1100px; }
+  .page.wide { max-width: 1360px; }
   .chrome { display: flex; align-items: center; gap: 10px; background: #f2f2f2; border-bottom: 1px solid #ccc; padding: 8px 12px; }
   .chrome .dots { display: flex; gap: 5px; }
   .chrome .dots i { width: 9px; height: 9px; border-radius: 50%; background: #ccc; }
   .chrome .url { flex: 1; background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 3px 10px; font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #666; }
 
-  section { border-bottom: 1px solid #ddd; padding: 32px 36px; }
+  section { border-bottom: 1px solid #ddd; padding: 40px 48px; }
   section:last-child { border-bottom: none; }
 
   h2 { font-size: 27px; margin-bottom: 8px; font-weight: 700; letter-spacing: -0.01em; }
@@ -80,8 +80,24 @@
 
   [data-goto], [data-toast] { text-decoration: none; }
 
+  /* Mobile: .page.mobile is a natively mobile screen (390px, iPhone logical
+     width). The deck-bar Mobile switch previews ANY page at that width;
+     the app shell stacks to one column. */
+  .page.mobile { max-width: 390px; }
+  body.mobile .page { max-width: 390px; }
+  body.mobile section { padding: 24px 20px; }
+  body.mobile .shell { grid-template-columns: 1fr; min-height: 0; }
+  body.mobile .snav { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px; border-right: 0; border-bottom: 1px solid #ccc; }
+  body.mobile .snav .wordmark { margin: 0 10px 0 0; }
+  body.mobile .shell .main { border-right: 0; }
+  body.mobile .panel { border-top: 1px solid #ccc; }
+  body.mobile .panel-msgs { max-height: 300px; }
+  body.mobile .frow { flex-wrap: wrap; }
+  body.mobile .frow .meta { margin-left: 0; }
+
+
   /* App shell */
-  .shell { display: grid; grid-template-columns: 168px 1fr 300px; min-height: 560px; }
+  .shell { display: grid; grid-template-columns: 200px 1fr 320px; min-height: 560px; }
   .snav { border-right: 1px solid #ccc; padding: 14px 12px; display: flex; flex-direction: column; }
   .snav .wordmark { font-weight: 700; font-size: 14px; margin-bottom: 16px; }
   .snav a { display: block; font-size: 13px; padding: 5px 6px; color: #444; cursor: pointer; border-radius: 3px; }
@@ -103,6 +119,23 @@
   .frow .meta { margin-left: auto; color: #888; font-size: 11px; white-space: nowrap; }
   .zone-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin: 14px 0 6px; }
   .zone-title:first-child { margin-top: 0; }
+
+  /* Tight: the compact width preset (the original deck size) */
+  body.tight .page { max-width: 900px; }
+  body.tight .page.wide { max-width: 1100px; }
+  body.tight section { padding: 32px 36px; }
+
+  /* Corners: the Square switch removes rounding on the product surface
+     (deck chrome stays rounded; it's review apparatus, not the product) */
+  body.square .page, body.square .page *, body.square .overlay-wrap * { border-radius: 0 !important; }
+  body.square .dn-dot, body.square .chrome .dots i { border-radius: 50% !important; }
+
+  /* Deck bar controls: width segments + spaced toggles */
+  .bar .seg { display: flex; border: 1px solid #555; border-radius: 3px; overflow: hidden; margin-left: 16px; }
+  .bar .seg button { background: none; border: 0; color: #999; font: inherit; font-size: 11px; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
+  .bar .seg button:hover { color: #fff; }
+  .bar .seg button.active { background: #fff; color: #111; font-weight: 700; }
+  .bar label { margin-left: 18px; }
 </style>
 </head>
 <body>
@@ -113,6 +146,12 @@
   <button class="tab" data-page="pricing">/pricing</button>
   <button class="tab" data-page="app">App · Inbox</button>
   <span class="spacer"></span>
+  <span class="seg" id="widthSeg">
+    <button class="active" data-w="">Desktop</button>
+    <button data-w="tight">Tight</button>
+    <button data-w="mobile">Mobile</button>
+  </span>
+  <label><input type="checkbox" id="squareToggle"> Square</label>
   <label><input type="checkbox" id="notesToggle"> Notes</label>
 </div>
 <div id="toast"></div>
@@ -299,6 +338,14 @@
   });
   document.getElementById('notesToggle').addEventListener('change', e =>
     document.body.classList.toggle('notes', e.target.checked));
+  const segBtns = document.querySelectorAll('#widthSeg button');
+  segBtns.forEach(b => b.addEventListener('click', () => {
+    segBtns.forEach(x => x.classList.toggle('active', x === b));
+    document.body.classList.toggle('tight', b.dataset.w === 'tight');
+    document.body.classList.toggle('mobile', b.dataset.w === 'mobile');
+  }));
+  document.getElementById('squareToggle').addEventListener('change', e =>
+    document.body.classList.toggle('square', e.target.checked));
 
   decorateNotes();
   show(location.hash.slice(1) || 'home');
