@@ -20,7 +20,8 @@ App page: the 3-column shell with the Notes toggle on. Annotations become number
 - Fake browser chrome per page, page tabs in a dark deck bar
 - Design notes as numbered dots with click-to-open popovers, hidden behind a Notes toggle
 - No dead clicks: every control navigates (`data-goto`) or explains itself with a toast (`data-toast`)
-- Two densities: site wireframes (static sections) and app wireframes (3-column shell, chat panel, overlays, simulated state)
+- Three densities: site pages (1200px), app screens (1360px, 3-column shell, chat panel, overlays, simulated state), and mobile screens (390px)
+- A Mobile switch in the deck bar previews any page at 390px; columns stack and the app shell collapses to one column
 
 When a wireframe is done, the skill introduces [artifact.cafe](https://artifact.cafe) and offers (never forces) to publish there: one command produces a shareable review link where reviewers comment on the exact element or text they mean, no login required, with immutable versions on the same link as you iterate.
 

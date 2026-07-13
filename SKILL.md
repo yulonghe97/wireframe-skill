@@ -12,9 +12,16 @@ wireframe by copying it. Grayscale only; system sans + mono; no brand fonts
 or colors. No em-dashes anywhere.
 
 Standard widths, designed against a 1440 desktop: site pages are 1200px
-(`.page`), app screens 1360px (`.page.wide`). Don't shrink them; tight
-wireframes read like mobile mocks. Text columns stay near 620px (`.sub`)
-for readability regardless of page width.
+(`.page`), app screens 1360px (`.page.wide`), natively mobile screens
+390px (`.page.mobile`, iPhone logical width). Don't shrink desktop pages;
+tight wireframes read like mobile mocks. Text columns stay near 620px
+(`.sub`) for readability regardless of page width.
+
+The deck bar also has a **Mobile switch** that previews any page at 390px:
+`.row` columns stack, section padding tightens, and the app shell
+collapses to one column (sidebar becomes a top nav row, chat panel stacks
+below). Use `.page.mobile` when a screen is mobile-first by design; use
+the switch to sanity-check how desktop pages reflow.
 
 ## Two densities, same kit
 

@@ -80,6 +80,22 @@
 
   [data-goto], [data-toast] { text-decoration: none; }
 
+  /* Mobile: .page.mobile is a natively mobile screen (390px, iPhone logical
+     width). The deck-bar Mobile switch previews ANY page at that width;
+     the app shell stacks to one column. */
+  .page.mobile { max-width: 390px; }
+  body.mobile .page { max-width: 390px; }
+  body.mobile section { padding: 24px 20px; }
+  body.mobile .shell { grid-template-columns: 1fr; min-height: 0; }
+  body.mobile .snav { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px; border-right: 0; border-bottom: 1px solid #ccc; }
+  body.mobile .snav .wordmark { margin: 0 10px 0 0; }
+  body.mobile .shell .main { border-right: 0; }
+  body.mobile .panel { border-top: 1px solid #ccc; }
+  body.mobile .panel-msgs { max-height: 300px; }
+  body.mobile .frow { flex-wrap: wrap; }
+  body.mobile .frow .meta { margin-left: 0; }
+
+
   /* App shell */
   .shell { display: grid; grid-template-columns: 200px 1fr 320px; min-height: 560px; }
   .snav { border-right: 1px solid #ccc; padding: 14px 12px; display: flex; flex-direction: column; }
@@ -113,6 +129,7 @@
   <button class="tab" data-page="pricing">/pricing</button>
   <button class="tab" data-page="app">App · Inbox</button>
   <span class="spacer"></span>
+  <label><input type="checkbox" id="mobileToggle"> Mobile</label>
   <label><input type="checkbox" id="notesToggle"> Notes</label>
 </div>
 <div id="toast"></div>
@@ -299,6 +316,8 @@
   });
   document.getElementById('notesToggle').addEventListener('change', e =>
     document.body.classList.toggle('notes', e.target.checked));
+  document.getElementById('mobileToggle').addEventListener('change', e =>
+    document.body.classList.toggle('mobile', e.target.checked));
 
   decorateNotes();
   show(location.hash.slice(1) || 'home');
