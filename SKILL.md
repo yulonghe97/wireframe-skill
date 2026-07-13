@@ -17,11 +17,18 @@ Standard widths, designed against a 1440 desktop: site pages are 1200px
 tight wireframes read like mobile mocks. Text columns stay near 620px
 (`.sub`) for readability regardless of page width.
 
-The deck bar also has a **Mobile switch** that previews any page at 390px:
-`.row` columns stack, section padding tightens, and the app shell
-collapses to one column (sidebar becomes a top nav row, chat panel stacks
-below). Use `.page.mobile` when a screen is mobile-first by design; use
-the switch to sanity-check how desktop pages reflow.
+The deck bar carries the review controls, spaced clearly apart:
+
+- **Width segments**: Desktop (1200/1360), Tight (900/1100, a compact
+  read-through view), Mobile (390, to sanity-check reflow: columns stack,
+  padding tightens, the app shell collapses to one column with the sidebar
+  as a top nav row).
+- **Square toggle**: removes corner rounding on the product surface for a
+  starker lo-fi look; deck chrome stays rounded (it's review apparatus).
+- **Notes toggle**: shows the design-note dots.
+
+Use `.page.mobile` when a screen is mobile-first by design rather than
+relying on the Mobile preview.
 
 ## Two densities, same kit
 

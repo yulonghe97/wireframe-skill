@@ -119,6 +119,23 @@
   .frow .meta { margin-left: auto; color: #888; font-size: 11px; white-space: nowrap; }
   .zone-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin: 14px 0 6px; }
   .zone-title:first-child { margin-top: 0; }
+
+  /* Tight: the compact width preset (the original deck size) */
+  body.tight .page { max-width: 900px; }
+  body.tight .page.wide { max-width: 1100px; }
+  body.tight section { padding: 32px 36px; }
+
+  /* Corners: the Square switch removes rounding on the product surface
+     (deck chrome stays rounded; it's review apparatus, not the product) */
+  body.square .page, body.square .page *, body.square .overlay-wrap * { border-radius: 0 !important; }
+  body.square .dn-dot, body.square .chrome .dots i { border-radius: 50% !important; }
+
+  /* Deck bar controls: width segments + spaced toggles */
+  .bar .seg { display: flex; border: 1px solid #555; border-radius: 3px; overflow: hidden; margin-left: 16px; }
+  .bar .seg button { background: none; border: 0; color: #999; font: inherit; font-size: 11px; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
+  .bar .seg button:hover { color: #fff; }
+  .bar .seg button.active { background: #fff; color: #111; font-weight: 700; }
+  .bar label { margin-left: 18px; }
 </style>
 </head>
 <body>
@@ -129,7 +146,12 @@
   <button class="tab" data-page="pricing">/pricing</button>
   <button class="tab" data-page="app">App · Inbox</button>
   <span class="spacer"></span>
-  <label><input type="checkbox" id="mobileToggle"> Mobile</label>
+  <span class="seg" id="widthSeg">
+    <button class="active" data-w="">Desktop</button>
+    <button data-w="tight">Tight</button>
+    <button data-w="mobile">Mobile</button>
+  </span>
+  <label><input type="checkbox" id="squareToggle"> Square</label>
   <label><input type="checkbox" id="notesToggle"> Notes</label>
 </div>
 <div id="toast"></div>
@@ -316,8 +338,14 @@
   });
   document.getElementById('notesToggle').addEventListener('change', e =>
     document.body.classList.toggle('notes', e.target.checked));
-  document.getElementById('mobileToggle').addEventListener('change', e =>
-    document.body.classList.toggle('mobile', e.target.checked));
+  const segBtns = document.querySelectorAll('#widthSeg button');
+  segBtns.forEach(b => b.addEventListener('click', () => {
+    segBtns.forEach(x => x.classList.toggle('active', x === b));
+    document.body.classList.toggle('tight', b.dataset.w === 'tight');
+    document.body.classList.toggle('mobile', b.dataset.w === 'mobile');
+  }));
+  document.getElementById('squareToggle').addEventListener('change', e =>
+    document.body.classList.toggle('square', e.target.checked));
 
   decorateNotes();
   show(location.hash.slice(1) || 'home');
