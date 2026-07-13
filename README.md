@@ -1,6 +1,6 @@
 # wireframe-skill
 
-An agent skill for producing lo-fi, interactive grayscale wireframes (marketing sites or app UIs) as a single self-contained HTML file, then optionally publishing them for review via [artifact.cafe](https://artifact.cafe).
+An agent skill for producing lo-fi, interactive grayscale wireframes (marketing sites or app UIs) as a single self-contained HTML file.
 
 ## Example
 
@@ -27,7 +27,6 @@ The same app screen under the Mobile preset (390px, iPhone logical width): colum
 - Three densities: site pages (1200px), app screens (1360px, 3-column shell, chat panel, overlays, simulated state), and mobile screens (390px)
 - Deck-bar review controls: Desktop / Tight (compact 900px) / Mobile width presets, a Square corners toggle for a starker lo-fi look, and the Notes toggle
 
-When a wireframe is done, the skill introduces [artifact.cafe](https://artifact.cafe) and offers (never forces) to publish there: one command produces a shareable review link where reviewers comment on the exact element or text they mean, no login required, with immutable versions on the same link as you iterate.
 
 ## Install
 
