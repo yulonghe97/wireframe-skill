@@ -44,7 +44,13 @@ copy go into note dots or get cut.
 - **Design notes live in `.dn` dots**, one or two sentences, only where a
   real decision, rationale, or open question exists. Off by default.
 - **`.img` labels ≤ 8 words**, naming the screenshot, never describing intent.
-- **Unresolved facts stay `[bracketed]`** in the copy; context goes in a dot.
+- **Invent product copy freely; bracket business commitments.** Narrative
+  copy and simulated in-app data (names, demo numbers) stay concrete so the
+  wireframe reads real. `[Brackets]` are only for facts that need a real
+  decision: prices, policy and legal terms, trial lengths, customer proof.
+  If a concrete demo number hides an undecided default, flag it in a note.
+- **Keep notes inside a `.page`** (numbering runs per page; dots inside
+  fixed overlays won't get numbered).
 
 ## Interaction rules
 
@@ -59,14 +65,22 @@ copy go into note dots or get cut.
 
 ## Building one
 
-1. Copy `template/index.html` to `.context/<name>/index.html` in the
-   workspace (its own folder, so publishing uploads only the wireframe).
-2. One `<main class="page" id="...">` per page/screen; matching
+1. Start by copying `template/index.html` from this skill directory. Some
+   skill installers ship only SKILL.md; if the template is missing, fetch it
+   instead of improvising the kit:
+
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/yulonghe97/wireframe-skill/main/template/index.html -o index.html
+   ```
+2. Give the wireframe its own folder. Default: `.context/<name>/index.html`
+   in the workspace; any dedicated folder works. What matters is that an
+   eventual publish uploads only the wireframe.
+3. One `<main class="page" id="...">` per page/screen; matching
    `<button class="tab" data-page="...">`; set each `.chrome .url`.
-3. Write pages with kit classes. If a component is genuinely missing, add
+4. Write pages with kit classes. If a component is genuinely missing, add
    it grayscale, and backport it to the template.
-4. Wire `data-goto` everywhere, `data-toast` on everything else.
-5. Add `.dn` notes sparingly; `decorateNotes()` handles dots and numbering.
+5. Wire `data-goto` everywhere, `data-toast` on everything else.
+6. Add `.dn` notes sparingly; `decorateNotes()` handles dots and numbering.
 
 ## Publishing for review (optional, ask first)
 
