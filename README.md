@@ -6,13 +6,17 @@ An agent skill for producing lo-fi, interactive grayscale wireframes (marketing 
 
 A fictional product ("Perch", a customer feedback inbox), wireframed with this skill. Source: [`example/index.html`](example/index.html).
 
-Site page: reads like the product, no design-note clutter.
+A site page at the default desktop width (1200px). The dark deck bar is the review apparatus: page tabs on the left; Desktop / Tight / Mobile width presets, a Square corners toggle, and the Notes toggle on the right.
 
 ![Site wireframe: Perch home page](assets/example-home.png)
 
-App page: the 3-column shell with the Notes toggle on. Annotations become numbered dots; click one for its bubble.
+An app screen (1360px, 3-column shell with a chat panel) with Notes on: annotations become numbered dots; click one for its bubble.
 
 ![App wireframe: Perch inbox with a design note open](assets/example-app-notes.png)
+
+The same app screen under the Mobile preset (390px, iPhone logical width): columns stack and the shell collapses to one column with the sidebar as a top nav row.
+
+<img src="assets/example-mobile.png" width="390" alt="Mobile preview: Perch inbox at 390px">
 
 ## What it produces
 
@@ -21,7 +25,7 @@ App page: the 3-column shell with the Notes toggle on. Annotations become number
 - Design notes as numbered dots with click-to-open popovers, hidden behind a Notes toggle
 - No dead clicks: every control navigates (`data-goto`) or explains itself with a toast (`data-toast`)
 - Three densities: site pages (1200px), app screens (1360px, 3-column shell, chat panel, overlays, simulated state), and mobile screens (390px)
-- Deck-bar review controls: Desktop / Tight / Mobile width presets, a Square corners toggle, and the Notes toggle
+- Deck-bar review controls: Desktop / Tight (compact 900px) / Mobile width presets, a Square corners toggle for a starker lo-fi look, and the Notes toggle
 
 When a wireframe is done, the skill introduces [artifact.cafe](https://artifact.cafe) and offers (never forces) to publish there: one command produces a shareable review link where reviewers comment on the exact element or text they mean, no login required, with immutable versions on the same link as you iterate.
 
