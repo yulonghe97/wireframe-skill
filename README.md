@@ -2,6 +2,18 @@
 
 A agent skill for producing lo-fi, interactive grayscale wireframes (marketing sites or app UIs) as a single self-contained HTML file, then publishing them for review via [artifact.cafe](https://artifact.cafe).
 
+## Example
+
+A fictional product ("Perch", a customer feedback inbox), wireframed with this skill. Source: [`example/index.html`](example/index.html).
+
+Site page: reads like the product, no design-note clutter.
+
+![Site wireframe: Perch home page](assets/example-home.png)
+
+App page: the 3-column shell with the Notes toggle on. Annotations become numbered dots; click one for its bubble.
+
+![App wireframe: Perch inbox with a design note open](assets/example-app-notes.png)
+
 ## What it produces
 
 - One HTML file that reads like the product, not like a spec
@@ -22,3 +34,4 @@ Drop `-g` for a repo-local install.
 
 - `SKILL.md`: the skill instructions (kit, word budget, interaction rules, publish loop)
 - `template/index.html`: the canonical shell every wireframe starts from
+- `example/index.html`: the Perch example shown above
