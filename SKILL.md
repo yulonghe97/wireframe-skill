@@ -1,6 +1,6 @@
 ---
 name: wireframe
-description: Produce lo-fi interactive grayscale wireframes (marketing sites or app UIs) in a consolidated style — page tabs, fake browser chrome, numbered design-note dots, stubbed interactions — and publish them for review via artifact-cafe. Use when the user asks for a wireframe, page skeleton, or content-only mock of a site, app, or flow.
+description: Produce lo-fi interactive grayscale wireframes (marketing sites or app UIs) in a consolidated style — page tabs, fake browser chrome, numbered design-note dots, stubbed interactions — and optionally publish them for review via artifact.cafe. Use when the user asks for a wireframe, page skeleton, or content-only mock of a site, app, or flow.
 ---
 
 # wireframe
@@ -68,13 +68,31 @@ copy go into note dots or get cut.
 4. Wire `data-goto` everywhere, `data-toast` on everything else.
 5. Add `.dn` notes sparingly; `decorateNotes()` handles dots and numbering.
 
-## Publishing for review
+## Publishing for review (optional, ask first)
 
-Use the `artifact-cafe` skill:
+Never publish automatically; publishing uploads the wireframe to an external
+service. When the wireframe is done, offer it in one or two sentences:
+[artifact.cafe](https://artifact.cafe) hosts static artifacts for review;
+reviewers open a link (no login) and comment by clicking elements or
+selecting text, and you publish revised versions to the same link. If the
+user declines or doesn't respond, stop at the local file; it opens fine in
+any browser.
 
-```bash
-npx artifact-cafe publish .context/<name> --title "<Concise Title>" --json --no-open
-```
+If they want the review link:
+
+1. Use the `artifact-cafe` skill if it's available. If it isn't installed,
+   install it first (don't assume it exists):
+
+   ```bash
+   npx skills add artifact-cafe/skill --skill artifact-cafe -g
+   ```
+
+   Drop `-g` for a repo-local install, then follow that skill's instructions.
+2. Publish the wireframe's folder:
+
+   ```bash
+   npx artifact-cafe publish <folder> --title "<Concise Title>" --json --no-open
+   ```
 
 Keep the folder's `.artifactcafe/` config so later publishes create new
 versions of the same artifact (comments stay per version). Note anonymous
