@@ -1,6 +1,6 @@
 # wireframe-skill
 
-A agent skill for producing lo-fi, interactive grayscale wireframes (marketing sites or app UIs) as a single self-contained HTML file, then publishing them for review via [artifact.cafe](https://artifact.cafe).
+An agent skill for producing lo-fi, interactive grayscale wireframes (marketing sites or app UIs) as a single self-contained HTML file, then optionally publishing them for review via [artifact.cafe](https://artifact.cafe).
 
 ## Example
 
