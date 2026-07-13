@@ -34,14 +34,15 @@
   .dn-pop::before { content: "design note"; display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 4px; }
 
   /* Page frame (fake browser chrome) */
-  .page { display: none; max-width: 900px; margin: 0 auto; background: #fff; border: 1px solid #999; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+  .page { display: none; max-width: 1200px; margin: 0 auto; background: #fff; border: 1px solid #999; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
   .page.on { display: block; }
+  .page.wide { max-width: 1360px; }
   .chrome { display: flex; align-items: center; gap: 10px; background: #f2f2f2; border-bottom: 1px solid #ccc; padding: 8px 12px; }
   .chrome .dots { display: flex; gap: 5px; }
   .chrome .dots i { width: 9px; height: 9px; border-radius: 50%; background: #ccc; }
   .chrome .url { flex: 1; background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 3px 10px; font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #666; }
 
-  section { border-bottom: 1px solid #ddd; padding: 32px 36px; }
+  section { border-bottom: 1px solid #ddd; padding: 40px 48px; }
   section:last-child { border-bottom: none; }
 
   h2 { font-size: 27px; margin-bottom: 8px; font-weight: 700; letter-spacing: -0.01em; }
@@ -92,7 +93,7 @@
   /* ── App-wireframe extras (delete if unused) ──────────────
      3-column shell: sidebar + main + chat panel. Overlays:
      right drawer (.drawer) and centered modal (.modal). */
-  .shell { display: grid; grid-template-columns: 168px 1fr 300px; min-height: 640px; }
+  .shell { display: grid; grid-template-columns: 200px 1fr 320px; min-height: 640px; }
   .snav { border-right: 1px solid #ccc; padding: 14px 12px; display: flex; flex-direction: column; }
   .snav .wordmark { font-weight: 700; font-size: 14px; margin-bottom: 16px; }
   .snav a { display: block; font-size: 13px; padding: 5px 6px; color: #444; cursor: pointer; border-radius: 3px; }

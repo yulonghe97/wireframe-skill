@@ -11,6 +11,11 @@ Canonical shell: `template/index.html` in this skill directory. Start every
 wireframe by copying it. Grayscale only; system sans + mono; no brand fonts
 or colors. No em-dashes anywhere.
 
+Standard widths, designed against a 1440 desktop: site pages are 1200px
+(`.page`), app screens 1360px (`.page.wide`). Don't shrink them; tight
+wireframes read like mobile mocks. Text columns stay near 620px (`.sub`)
+for readability regardless of page width.
+
 ## Two densities, same kit
 
 - **Site wireframe** (marketing pages): static sections inside a fake
