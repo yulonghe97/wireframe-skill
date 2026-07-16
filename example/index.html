@@ -97,12 +97,12 @@
 
 
   /* App shell */
-  .shell { display: grid; grid-template-columns: 200px 1fr 320px; min-height: 560px; }
+  .shell { display: grid; grid-template-columns: 184px minmax(0, 1fr) 332px; min-height: 650px; }
   .snav { border-right: 1px solid #ccc; padding: 14px 12px; display: flex; flex-direction: column; }
   .snav .wordmark { font-weight: 700; font-size: 14px; margin-bottom: 16px; }
   .snav a { display: block; font-size: 13px; padding: 5px 6px; color: #444; cursor: pointer; border-radius: 3px; }
   .snav a.on { border: 1px solid #111; color: #111; font-weight: 700; }
-  .shell .main { padding: 16px 18px; border-right: 1px solid #ccc; overflow: hidden; }
+  .shell .main { padding: 0; border-right: 1px solid #ccc; overflow: hidden; }
   .panel { display: flex; flex-direction: column; background: #fcfcfc; }
   .panel-head { border-bottom: 1px solid #ccc; padding: 10px 12px; }
   .panel-msgs { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
@@ -119,6 +119,125 @@
   .frow .meta { margin-left: auto; color: #888; font-size: 11px; white-space: nowrap; }
   .zone-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin: 14px 0 6px; }
   .zone-title:first-child { margin-top: 0; }
+
+  /* Perch demo surface */
+  button, input { font: inherit; }
+  button { letter-spacing: 0; }
+  .home-hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr); gap: 42px; align-items: center; }
+  .hero-copy h2 { font-size: 38px; line-height: 1.06; max-width: 520px; text-wrap: balance; }
+  .hero-kicker { font: 700 10px/1.3 ui-monospace, Menlo, monospace; text-transform: uppercase; letter-spacing: .08em; color: #666; margin-bottom: 12px; }
+  .product-preview { border: 1px solid #999; background: #f8f8f8; box-shadow: 8px 8px 0 #dedede; }
+  .preview-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-bottom: 1px solid #ccc; font-size: 11px; }
+  .preview-body { padding: 12px; }
+  .preview-stat { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #ccc; margin-bottom: 10px; }
+  .preview-stat span { padding: 8px; border-right: 1px solid #ccc; font-size: 10px; color: #666; }
+  .preview-stat span:last-child { border-right: 0; }
+  .preview-stat strong { display: block; font-size: 15px; color: #111; }
+  .preview-theme { border: 1px solid #111; background: #fff; padding: 10px; margin-top: 7px; }
+  .preview-theme div { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; }
+  .preview-theme p { font-size: 12px; font-weight: 700; margin-top: 4px; }
+  .source-strip { display: grid; grid-template-columns: auto repeat(5, 1fr); align-items: center; gap: 18px; }
+  .source-strip span { color: #666; font-size: 12px; text-align: center; }
+  .source-strip strong { text-align: left; color: #111; }
+  .process-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 34px; align-items: start; }
+  .process-list { border-top: 1px solid #bbb; }
+  .process-item { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid #bbb; }
+  .process-item .num { font-family: ui-monospace, Menlo, monospace; color: #777; }
+  .process-item p { color: #555; font-size: 13px; }
+  .quote-block { background: #111; color: #fff; padding: 28px; min-height: 224px; display: flex; flex-direction: column; justify-content: space-between; }
+  .quote-block blockquote { font-size: 21px; line-height: 1.35; }
+  .quote-block p { color: #aaa; font-size: 12px; }
+
+  .app-head { padding: 14px 16px 12px; border-bottom: 1px solid #ccc; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .app-head h3 { margin: 0; font-size: 18px; }
+  .app-head p { font-size: 11px; color: #777; }
+  .sync { display: flex; gap: 7px; align-items: center; color: #666; font-size: 11px; white-space: nowrap; }
+  .sync::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #111; }
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #ccc; }
+  .metric { padding: 11px 12px; border-right: 1px solid #ddd; min-width: 0; }
+  .metric:last-child { border-right: 0; }
+  .metric span { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; color: #777; white-space: nowrap; }
+  .metric strong { display: block; font-size: 19px; line-height: 1.1; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .metric small { font-size: 9px; color: #777; }
+  .tools { min-height: 47px; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .range { display: flex; border: 1px solid #bbb; }
+  .range button, .filter-btn, .detail-tab, .prompt-chip { border: 0; background: #fff; color: #666; cursor: pointer; }
+  .range button { padding: 4px 8px; font-size: 10px; border-right: 1px solid #bbb; }
+  .range button:last-child { border-right: 0; }
+  .range button.on, .filter-btn.on, .detail-tab.on { background: #111; color: #fff; }
+  .search { margin-left: auto; min-width: 170px; border: 1px solid #bbb; padding: 5px 8px; font-size: 10px; background: #fff; }
+  .theme-list { padding: 10px 12px 14px; }
+  .list-label { display: flex; justify-content: space-between; align-items: center; margin: 2px 0 6px; font-size: 9px; text-transform: uppercase; letter-spacing: .07em; color: #777; }
+  .list-label button { border: 0; background: transparent; color: #555; cursor: pointer; font-size: 10px; text-transform: none; }
+  .theme-row { width: 100%; display: grid; grid-template-columns: 30px minmax(180px, 1fr) 105px 84px 26px; gap: 9px; align-items: center; text-align: left; border: 1px solid #ccc; border-bottom: 0; background: #fff; padding: 9px 10px; cursor: pointer; color: #111; }
+  .theme-row:last-of-type { border-bottom: 1px solid #ccc; }
+  .theme-row:hover, .theme-row.active { background: #f3f3f3; border-color: #888; }
+  .theme-row:focus-visible { outline: 2px solid #111; outline-offset: -2px; position: relative; }
+  .rank { font: 700 12px/1 ui-monospace, Menlo, monospace; color: #777; }
+  .theme-name { min-width: 0; }
+  .theme-name strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+  .theme-name small, .theme-source, .theme-risk { font-size: 9px; color: #777; }
+  .theme-source, .theme-risk { line-height: 1.3; }
+  .theme-risk strong { color: #333; font-size: 11px; display: block; font-variant-numeric: tabular-nums; }
+  .mini-bars { height: 24px; display: flex; gap: 2px; align-items: end; }
+  .mini-bars i { flex: 1; background: #aaa; min-height: 3px; }
+  .row-arrow { color: #777; text-align: right; }
+  .filter-btn { padding: 4px 7px; border: 1px solid #bbb; font-size: 9px; }
+  .empty-filter { display: none; padding: 46px 20px; text-align: center; color: #777; font-size: 12px; border: 1px dashed #bbb; }
+
+  .panel-head { display: flex; align-items: center; justify-content: space-between; min-height: 49px; }
+  .panel-head small { color: #777; font-size: 9px; }
+  .panel-msgs { min-height: 0; }
+  .msg .body { line-height: 1.45; }
+  .citations { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 7px; }
+  .citation { border: 1px solid #bbb; background: #f7f7f7; padding: 2px 5px; font-size: 9px; color: #555; cursor: pointer; }
+  .prompt-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: auto; }
+  .prompt-chip { border: 1px solid #bbb; padding: 5px 7px; font-size: 9px; text-align: left; }
+  .prompt-chip:hover { border-color: #111; color: #111; }
+  .composer-row { display: grid; grid-template-columns: 1fr 30px; gap: 6px; }
+  .composer input { min-width: 0; border: 1px solid #bbb; padding: 7px 8px; font-size: 10px; }
+  .send { border: 0; background: #111; color: #fff; cursor: pointer; }
+
+  .overlay-wrap { position: fixed; inset: 0; z-index: 60; display: none; }
+  .overlay-wrap.open { display: block; }
+  .overlay-dim { position: absolute; inset: 0; background: rgba(20,20,20,.38); }
+  .drawer { position: absolute; top: 44px; right: 0; bottom: 0; width: min(620px, 94vw); background: #fff; border-left: 2px solid #111; overflow-y: auto; box-shadow: -12px 0 32px rgba(0,0,0,.16); }
+  .drawer-head { position: sticky; top: 0; z-index: 1; background: #fff; border-bottom: 1px solid #bbb; padding: 16px 18px 13px; }
+  .drawer-topline { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+  .drawer-head h3 { font-size: 21px; line-height: 1.2; margin: 5px 0; }
+  .icon-btn { width: 30px; height: 30px; border: 1px solid #999; background: #fff; cursor: pointer; font-size: 18px; }
+  .detail-summary { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid #ccc; }
+  .detail-summary div { padding: 12px 16px; border-right: 1px solid #ddd; }
+  .detail-summary div:last-child { border-right: 0; }
+  .detail-summary small { display: block; color: #777; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
+  .detail-summary strong { font-size: 16px; font-variant-numeric: tabular-nums; }
+  .detail-tabs { display: flex; gap: 2px; padding: 12px 16px 0; }
+  .detail-tab { padding: 6px 10px; font-size: 10px; border: 1px solid #bbb; }
+  .detail-content { padding: 14px 16px 28px; }
+  .evidence { border: 1px solid #ccc; padding: 11px 12px; margin-bottom: 8px; }
+  .evidence-head { display: flex; justify-content: space-between; gap: 10px; font-size: 9px; color: #777; margin-bottom: 6px; }
+  .evidence p { font-size: 12px; }
+  .evidence mark { background: #e2e2e2; color: #111; padding: 0 2px; }
+  .draft { border: 1px solid #999; background: #f7f7f7; padding: 14px; }
+  .draft label { display: block; font-size: 9px; color: #777; text-transform: uppercase; letter-spacing: .06em; margin: 11px 0 4px; }
+  .draft input, .draft textarea { width: 100%; border: 1px solid #bbb; background: #fff; padding: 8px; font: 11px/1.45 ui-monospace, Menlo, monospace; resize: vertical; }
+  .draft textarea { min-height: 118px; }
+  .draft-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
+  .created { display: none; border: 1px solid #111; padding: 12px; background: #fff; font-size: 12px; }
+  .created strong { display: block; margin-bottom: 3px; }
+
+  body.mobile .home-hero, body.mobile .process-grid { grid-template-columns: 1fr; }
+  body.mobile .source-strip { grid-template-columns: 1fr 1fr; }
+  body.mobile .source-strip strong { grid-column: 1 / -1; }
+  body.mobile .product-preview { box-shadow: 4px 4px 0 #dedede; }
+  body.mobile .metric-grid { grid-template-columns: 1fr 1fr; }
+  body.mobile .metric:nth-child(2) { border-right: 0; }
+  body.mobile .metric:nth-child(-n+2) { border-bottom: 1px solid #ddd; }
+  body.mobile .tools { flex-wrap: wrap; }
+  body.mobile .search { order: 3; width: 100%; margin-left: 0; }
+  body.mobile .theme-row { grid-template-columns: 24px minmax(0, 1fr) 26px; }
+  body.mobile .theme-source, body.mobile .theme-risk, body.mobile .mini-bars { display: none; }
+  body.mobile .drawer { top: 44px; width: 100%; }
 
   /* Tight: the compact width preset (the original deck size) */
   body.tight .page { max-width: 900px; }
@@ -167,36 +286,75 @@
     </nav>
   </section>
 
-  <section>
-    <span class="dn">Hero leads with the pain (feedback scattered across five tools), not the feature list. Screenshot is the real inbox, not an illustration.</span>
-    <h2>Every piece of feedback. One inbox.</h2>
-    <p class="sub">Perch pulls reviews, support tickets, survey answers, and social mentions into a single stream, groups them by theme, and tells you what to fix first.</p>
-    <span class="btn" data-toast="→ app signup · 14-day trial">Start trial</span>
-    <span class="btn ghost" data-goto="app">See the inbox</span>
-    <div class="img">Inbox screenshot · themes ranked by revenue at risk</div>
-  </section>
-
-  <section>
-    <h3>How it works</h3>
-    <div class="steps">
-      <div class="step"><h4>Connect your sources</h4><p>App stores, Zendesk, Intercom, NPS surveys, X, Reddit. One click each.</p></div>
-      <div class="step"><h4>Perch groups by theme</h4><p>"Checkout fails on iOS" is one theme, not 47 tickets.</p></div>
-      <div class="step"><h4>Fix what matters</h4><p>Themes ranked by revenue at risk. Push any theme to Linear or Jira.</p></div>
+  <section class="home-hero">
+    <div class="hero-copy">
+      <p class="hero-kicker">Customer signal, ranked</p>
+      <span class="dn">The hero uses the working product, not an abstract illustration. A click takes the reviewer straight into the inbox.</span>
+      <h2>Know which customer problem to fix next.</h2>
+      <p class="sub">Perch turns reviews, support tickets, surveys, and social posts into a ranked list your product team can act on.</p>
+      <span class="btn" data-toast="→ app signup · 14-day trial">Start trial</span>
+      <span class="btn ghost" data-goto="app">Explore the inbox</span>
+      <p class="fine">Connect a source in under five minutes. No card.</p>
+    </div>
+    <div class="product-preview" data-goto="app" role="button" tabindex="0" aria-label="Open the Perch inbox">
+      <div class="preview-head"><strong>Weekly signal</strong><span>Jun 8 - 14</span></div>
+      <div class="preview-body">
+        <div class="preview-stat">
+          <span><strong>184</strong>reports</span>
+          <span><strong>12</strong>themes</span>
+          <span><strong>$18.4k</strong>MRR at risk</span>
+        </div>
+        <div class="preview-theme">
+          <div><span class="chip fill">SPIKE</span><span>21 reports · 3 sources</span></div>
+          <p>Checkout fails on iOS 18.5</p>
+        </div>
+        <div class="preview-theme">
+          <div><span>#02</span><span>14 reports · 2 sources</span></div>
+          <p>Export to CSV missing columns</p>
+        </div>
+        <div class="preview-theme">
+          <div><span>#03</span><span>9 reports · App Store</span></div>
+          <p>Dark mode contrast too low</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section>
-    <span class="dn">Real customer quotes only. Ship with one if that's what legal approves.</span>
-    <h3>Teams that stopped guessing</h3>
-    <div class="row">
-      <div class="col"><h4>[Customer 1]</h4><p>[approved quote]</p></div>
-      <div class="col"><h4>[Customer 2]</h4><p>[approved quote]</p></div>
-      <div class="col"><h4>[Customer 3]</h4><p>[approved quote]</p></div>
+    <div class="source-strip">
+      <strong>One inbox for every signal</strong>
+      <span>App Store</span><span>Zendesk</span><span>Intercom</span><span>Reddit</span><span>NPS</span>
+    </div>
+  </section>
+
+  <section class="process-grid">
+    <div>
+      <p class="hero-kicker">From noise to a decision</p>
+      <h3>Read the pattern, then read the proof.</h3>
+      <p class="sub">Perch groups duplicate reports, measures the trend, and keeps every claim linked to the original customer words.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item"><span class="num">01</span><div><h4>Connect your sources</h4><p>Bring in reviews, tickets, surveys, and public posts.</p></div></div>
+      <div class="process-item"><span class="num">02</span><div><h4>See themes take shape</h4><p>Watch related reports resolve into ranked customer problems.</p></div></div>
+      <div class="process-item"><span class="num">03</span><div><h4>Ship with evidence</h4><p>Draft a Linear issue with quotes, counts, and source links attached.</p></div></div>
+    </div>
+  </section>
+
+  <section class="process-grid">
+    <div class="quote-block">
+      <blockquote>“We stopped debating the loudest ticket and started fixing the pattern behind it.”</blockquote>
+      <p>[Approved customer quote · product lead]</p>
+    </div>
+    <div>
+      <p class="hero-kicker">Built for the weekly product rhythm</p>
+      <h3>Walk into planning with the evidence already sorted.</h3>
+      <p class="sub">Ask what changed, open the customer quotes behind a spike, and send the decision to Linear without rebuilding the story by hand.</p>
+      <span class="btn" data-goto="app">Open the live example</span>
     </div>
   </section>
 
   <section>
-    <h3>Ship the fix, not the survey.</h3>
+    <h3>Turn this week’s feedback into next week’s fix.</h3>
     <span class="btn" data-toast="→ app signup · 14-day trial">Start trial</span>
     <p class="fine">14-day trial. No card.</p>
   </section>
@@ -257,56 +415,187 @@
 
 <!-- ══════════════════════════════════════════════════ APP · INBOX -->
 <main class="page wide" id="app">
-  <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">app.perch.app/inbox</span></div>
+  <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">app.perch.app/acme/inbox?range=7d</span></div>
 
   <div class="shell">
     <div class="snav">
-      <div class="wordmark">Perch</div>
+      <div class="wordmark">Perch <span class="chip dim">Acme</span></div>
       <a class="on">Inbox</a>
       <a data-toast="Wireframe: theme trends over time">Insights</a>
       <a data-toast="Wireframe: alert rules (spike detection)">Alerts</a>
       <a data-toast="Wireframe: source connections">Sources</a>
       <a data-toast="Wireframe: settings">Settings</a>
+      <div style="margin-top:auto; padding:8px 6px; font-size:10px; color:#777;">6 sources connected<br>Last sync 2m ago</div>
     </div>
 
     <div class="main">
-      <div class="zone-title">Needs a decision <span class="dn">The only zone that requires the user. Everything else is ambient.</span></div>
-      <div class="frow" data-toast="Wireframe: opens the theme with a draft Linear issue attached"><span class="chip fill">SPIKE</span><strong>Checkout fails on iOS 18.5</strong><span class="src">21 reports · 3 sources · started Tue</span><span class="meta">est. $8k MRR at risk · triage →</span></div>
+      <div class="app-head">
+        <div><h3>Customer signal</h3><p>184 reports grouped into 12 themes</p></div>
+        <span class="sync">All sources current</span>
+      </div>
 
-      <div class="zone-title">Top themes this week</div>
-      <div class="frow" data-toast="Wireframe: theme detail · every report, quoted"><strong>Export to CSV missing columns</strong><span class="src">14 reports · Zendesk, Reddit</span><span class="meta">↑ 40% · rank 2</span></div>
-      <div class="frow" data-toast="Wireframe: theme detail"><strong>Dark mode contrast too low</strong><span class="src">9 reports · App Store</span><span class="meta">flat · rank 3</span></div>
-      <div class="frow" data-toast="Wireframe: theme detail"><strong>Onboarding email links expire early</strong><span class="src">6 reports · Intercom</span><span class="meta">new · rank 4</span></div>
+      <div class="metric-grid">
+        <div class="metric"><span>Reports</span><strong data-stat="reports">184</strong><small data-delta="reports">+24 this week</small></div>
+        <div class="metric"><span>Active themes</span><strong data-stat="themes">12</strong><small data-delta="themes">3 need review</small></div>
+        <div class="metric"><span>MRR at risk</span><strong data-stat="risk">$18.4k</strong><small data-delta="risk">across 9 accounts</small></div>
+        <div class="metric"><span>Resolved</span><strong data-stat="resolved">31</strong><small data-delta="resolved">reports confirmed</small></div>
+      </div>
 
-      <div class="zone-title">Resolved this week</div>
-      <div class="frow" style="color:#888; cursor:default;"><strong style="color:#666;">Search timeout on large workspaces</strong><span class="src">shipped in 4.2.1 · 31 reports closed</span><span class="meta">✓ confirmed fixed by 6 users</span></div>
+      <div class="tools">
+        <div class="range" aria-label="Time range">
+          <button data-range="today">Today</button><button class="on" data-range="7d">7 days</button><button data-range="30d">30 days</button>
+        </div>
+        <button class="filter-btn on" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="spike">Spikes</button>
+        <input class="search" id="themeSearch" type="search" placeholder="Search themes" aria-label="Search themes">
+      </div>
+
+      <div class="theme-list">
+        <div class="list-label"><span>Needs a decision <span class="dn">This queue combines volume, velocity, customer value, and confidence. The user can still inspect every underlying report.</span></span><button data-toast="Sorted by impact, then velocity">Impact ↓</button></div>
+
+        <button class="theme-row" data-theme="checkout" data-kind="spike">
+          <span class="rank">01</span>
+          <span class="theme-name"><strong>Checkout fails on iOS 18.5</strong><small><span class="chip fill">SPIKE</span> started Tue · 82% confidence</small></span>
+          <span class="theme-source">21 reports<br>App Store +2</span>
+          <span class="theme-risk"><strong data-row-risk="checkout">$8.1k</strong>MRR at risk</span>
+          <span class="row-arrow">→</span>
+        </button>
+        <button class="theme-row" data-theme="export" data-kind="spike">
+          <span class="rank">02</span>
+          <span class="theme-name"><strong>Export to CSV missing columns</strong><small>up 40% · 91% confidence</small></span>
+          <span class="theme-source">14 reports<br>Zendesk +1</span>
+          <span class="theme-risk"><strong>$4.7k</strong>MRR at risk</span>
+          <span class="row-arrow">→</span>
+        </button>
+        <button class="theme-row" data-theme="contrast" data-kind="theme">
+          <span class="rank">03</span>
+          <span class="theme-name"><strong>Dark mode contrast too low</strong><small>flat · 88% confidence</small></span>
+          <span class="theme-source">9 reports<br>App Store</span>
+          <span class="theme-risk"><strong>$3.2k</strong>MRR at risk</span>
+          <span class="row-arrow">→</span>
+        </button>
+        <button class="theme-row" data-theme="onboarding" data-kind="theme">
+          <span class="rank">04</span>
+          <span class="theme-name"><strong>Onboarding links expire early</strong><small>new · 79% confidence</small></span>
+          <span class="theme-source">6 reports<br>Intercom</span>
+          <span class="theme-risk"><strong>$2.4k</strong>MRR at risk</span>
+          <span class="row-arrow">→</span>
+        </button>
+        <div class="empty-filter">No themes match this view.</div>
+
+        <div class="list-label" style="margin-top:13px"><span>Resolved this week</span><button data-toast="Opens resolved themes">View 4</button></div>
+        <button class="theme-row" data-theme="search" data-kind="resolved">
+          <span class="rank">✓</span>
+          <span class="theme-name"><strong>Search timeout on large workspaces</strong><small>shipped in 4.2.1</small></span>
+          <span class="theme-source">31 reports<br>6 confirmed fixed</span>
+          <span class="theme-risk"><strong>4d</strong>to resolution</span>
+          <span class="row-arrow">→</span>
+        </button>
+      </div>
     </div>
 
     <div class="panel">
       <div class="panel-head">
-        <h4>Ask Perch <span class="dn">Chat is scoped to the inbox. Answers cite the underlying reports, never a vibe.</span></h4>
+        <h4>Ask Perch <span class="dn">Answers stay scoped to connected feedback and cite the exact reports used. Suggested prompts make the demo discoverable.</span></h4><small>184 reports in context</small>
       </div>
-      <div class="panel-msgs">
+      <div class="panel-msgs" id="chatMessages">
         <div class="msg user"><div class="who">you</div><div class="body">what changed since last week?</div></div>
-        <div class="msg"><div class="who">Perch</div><div class="body">One new spike: checkout failures on iOS 18.5, 21 reports since Tuesday, mostly App Store reviews. Export complaints are up 40%. Everything else is flat.</div></div>
-        <div class="msg"><div class="who">Perch</div><div class="body">Want me to draft the Linear issue for the checkout spike? I'll attach the 21 reports.<div style="margin-top:7px"><span class="btn sm" data-toast="Wireframe: creates Linear issue with reports attached">Draft it</span> <span class="btn sm ghost" data-toast="Wireframe: dismissed">Not yet</span></div></div></div>
+        <div class="msg"><div class="who">Perch</div><div class="body">Two themes need attention. Checkout failures on iOS 18.5 appeared Tuesday and now affect 9 accounts. Export complaints are up 40%. Everything else is flat.<div class="citations"><button class="citation" data-open-theme="checkout">21 checkout reports</button><button class="citation" data-open-theme="export">14 export reports</button></div></div></div>
+        <div class="msg"><div class="who">Perch</div><div class="body">I can draft the checkout issue with reproduction steps and the 21 source reports attached.<div style="margin-top:7px"><button class="btn sm" data-draft-theme="checkout">Review draft</button> <button class="btn sm ghost" data-toast="Draft dismissed">Not yet</button></div></div></div>
+        <div class="prompt-row">
+          <button class="prompt-chip" data-prompt="accounts">Which accounts are affected?</button>
+          <button class="prompt-chip" data-prompt="sources">Show the source mix</button>
+          <button class="prompt-chip" data-prompt="brief">Write a planning brief</button>
+        </div>
       </div>
       <div class="composer">
-        <div class="fake">Ask about any theme, source, or spike…</div>
+        <form class="composer-row" id="chatForm"><input id="chatInput" placeholder="Ask about a theme or source" aria-label="Ask Perch"><button class="send" title="Send" aria-label="Send">↑</button></form>
       </div>
     </div>
+  </div>
+
+  <div class="overlay-wrap" id="themeDrawer" aria-hidden="true">
+    <div class="overlay-dim" data-close-drawer></div>
+    <aside class="drawer" aria-label="Theme detail">
+      <div class="drawer-head">
+        <div class="drawer-topline">
+          <div><span class="chip fill" id="drawerSignal">SPIKE</span><h3 id="drawerTitle">Checkout fails on iOS 18.5</h3><p id="drawerSubtitle">21 reports from 3 sources · started Tuesday</p></div>
+          <button class="icon-btn" data-close-drawer aria-label="Close theme detail">×</button>
+        </div>
+      </div>
+      <div class="detail-summary">
+        <div><small>MRR at risk</small><strong id="drawerRisk">$8.1k</strong></div>
+        <div><small>Accounts</small><strong id="drawerAccounts">9</strong></div>
+        <div><small>Confidence</small><strong id="drawerConfidence">82%</strong></div>
+      </div>
+      <div class="detail-tabs">
+        <button class="detail-tab on" data-detail-tab="evidence">Evidence</button>
+        <button class="detail-tab" data-detail-tab="sources">Source mix</button>
+        <button class="detail-tab" data-detail-tab="draft">Linear draft</button>
+      </div>
+      <div class="detail-content" id="detailContent"></div>
+    </aside>
   </div>
 </main>
 
 <script>
   const tabs = document.querySelectorAll('.tab[data-page]');
   const pages = document.querySelectorAll('.page');
+  const drawer = document.getElementById('themeDrawer');
+  const detailContent = document.getElementById('detailContent');
+  let currentTheme = 'checkout';
+  let currentDetailTab = 'evidence';
+  let issueCreated = false;
+
+  const ranges = {
+    today: { reports: '37', themes: '6', risk: '$11.2k', resolved: '4', reportsDelta: '+8 since 9am', themesDelta: '1 needs review', riskDelta: 'across 5 accounts', resolvedDelta: 'reports confirmed' },
+    '7d': { reports: '184', themes: '12', risk: '$18.4k', resolved: '31', reportsDelta: '+24 this week', themesDelta: '3 need review', riskDelta: 'across 9 accounts', resolvedDelta: 'reports confirmed' },
+    '30d': { reports: '692', themes: '34', risk: '$46.7k', resolved: '118', reportsDelta: '+11% vs prior period', themesDelta: '7 need review', riskDelta: 'across 23 accounts', resolvedDelta: 'reports confirmed' }
+  };
+
+  const themes = {
+    checkout: {
+      signal: 'SPIKE', title: 'Checkout fails on iOS 18.5', subtitle: '21 reports from 3 sources · started Tuesday', risk: '$8.1k', accounts: '9', confidence: '82%',
+      evidence: [
+        ['App Store · 2h ago', 'Northstar Health · $1.8k MRR', 'Checkout freezes right after Face ID. I retried three times and still could not upgrade on my iPhone.'],
+        ['Zendesk · 5h ago', 'Orbit Labs · $940 MRR', 'The payment sheet closes after authentication on iOS 18.5. Web checkout works for the same card.'],
+        ['Intercom · yesterday', 'Cedar & Co · $620 MRR', 'Two teammates hit the same upgrade error after installing the latest iOS update.']
+      ],
+      sources: [['App Store', 12, '57%'], ['Zendesk', 6, '29%'], ['Intercom', 3, '14%']],
+      draftTitle: '[iOS 18.5] Checkout closes after Face ID authentication',
+      draftBody: 'Impact\n21 reports across 9 accounts. Estimated $8.1k MRR at risk.\n\nObserved pattern\nPayment sheet closes after Face ID on iOS 18.5. The same cards succeed on web.\n\nAcceptance\nCheckout completes after biometric authentication on iOS 18.5. Add regression coverage for upgrade and new purchase flows.'
+    },
+    export: {
+      signal: 'RISING', title: 'Export to CSV missing columns', subtitle: '14 reports from 2 sources · up 40%', risk: '$4.7k', accounts: '6', confidence: '91%',
+      evidence: [['Zendesk · 3h ago', 'Hearth Studio · $1.1k MRR', 'The CSV export no longer includes owner and renewal date, so our Monday report breaks.'], ['Reddit · yesterday', 'Public post · account unknown', 'Did the last release remove custom fields from CSV exports?']],
+      sources: [['Zendesk', 10, '71%'], ['Reddit', 4, '29%']],
+      draftTitle: 'Restore owner and renewal columns in CSV exports',
+      draftBody: 'Impact\n14 reports across 6 known accounts.\n\nObserved pattern\nOwner, renewal date, and some custom fields are absent from exports created after June 9.\n\nAcceptance\nExisting export schemas remain stable and custom fields are included when selected.'
+    },
+    contrast: {
+      signal: 'THEME', title: 'Dark mode contrast too low', subtitle: '9 reports from App Store · flat', risk: '$3.2k', accounts: '4', confidence: '88%',
+      evidence: [['App Store · today', 'Verified subscriber · account linked', 'The gray labels disappear against the dark background. I cannot read totals without increasing brightness.']],
+      sources: [['App Store', 9, '100%']], draftTitle: 'Increase secondary text contrast in dark mode', draftBody: 'Impact\n9 reports across 4 accounts.\n\nAcceptance\nSecondary labels meet WCAG AA contrast in every dark mode data view.'
+    },
+    onboarding: {
+      signal: 'NEW', title: 'Onboarding links expire early', subtitle: '6 reports from Intercom · first seen Friday', risk: '$2.4k', accounts: '5', confidence: '79%',
+      evidence: [['Intercom · 6h ago', 'Beacon Works · $480 MRR', 'The invite from this morning already says it expired. Resending works, but only for a few hours.']],
+      sources: [['Intercom', 6, '100%']], draftTitle: 'Fix early expiration for onboarding invite links', draftBody: 'Impact\n6 reports across 5 accounts.\n\nAcceptance\nNew invite links remain valid for the configured expiration window.'
+    },
+    search: {
+      signal: 'RESOLVED', title: 'Search timeout on large workspaces', subtitle: '31 linked reports · shipped in 4.2.1', risk: '$0', accounts: '6', confidence: '96%',
+      evidence: [['Zendesk · today', 'Atlas Freight · $2.2k MRR', 'Search is fast again on our 90k-item workspace. The timeout is gone after updating.']],
+      sources: [['Zendesk', 18, '58%'], ['Intercom', 13, '42%']], draftTitle: 'Resolved in 4.2.1', draftBody: '31 reports closed. Six customers confirmed the fix after rollout.'
+    }
+  };
+
   function show(id) {
     if (!document.getElementById(id)) id = pages[0].id;
     pages.forEach(p => p.classList.toggle('on', p.id === id));
     tabs.forEach(t => t.classList.toggle('active', t.dataset.page === id));
     history.replaceState(null, '', '#' + id);
     window.scrollTo(0, 0);
+    closeDrawer();
   }
   tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.page)));
 
@@ -327,14 +616,157 @@
     pages.forEach(p => p.querySelectorAll('.dn-dot').forEach((dot, i) => dot.textContent = i + 1));
   }
 
+  function openTheme(id, tab = 'evidence') {
+    if (!themes[id]) return;
+    currentTheme = id;
+    currentDetailTab = tab;
+    const theme = themes[id];
+    document.getElementById('drawerSignal').textContent = theme.signal;
+    document.getElementById('drawerTitle').textContent = theme.title;
+    document.getElementById('drawerSubtitle').textContent = theme.subtitle;
+    document.getElementById('drawerRisk').textContent = theme.risk;
+    document.getElementById('drawerAccounts').textContent = theme.accounts;
+    document.getElementById('drawerConfidence').textContent = theme.confidence;
+    document.querySelectorAll('.theme-row').forEach(row => row.classList.toggle('active', row.dataset.theme === id));
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    renderDetail();
+  }
+
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.querySelectorAll('.theme-row').forEach(row => row.classList.remove('active'));
+  }
+
+  function renderDetail() {
+    const theme = themes[currentTheme];
+    document.querySelectorAll('.detail-tab').forEach(tab => tab.classList.toggle('on', tab.dataset.detailTab === currentDetailTab));
+    if (currentDetailTab === 'evidence') {
+      detailContent.innerHTML = '<div class="list-label"><span>Customer evidence</span><span>21 reports linked</span></div>' + theme.evidence.map(item => `
+        <article class="evidence"><div class="evidence-head"><span>${item[0]}</span><span>${item[1]}</span></div><p>“${item[2]}”</p></article>
+      `).join('') + '<button class="btn ghost" data-toast="Opens all linked reports">View all reports</button>';
+      return;
+    }
+    if (currentDetailTab === 'sources') {
+      detailContent.innerHTML = '<div class="list-label"><span>Source mix</span><span>Matched reports</span></div>' + theme.sources.map(item => `
+        <article class="evidence"><div class="evidence-head"><strong>${item[0]}</strong><span>${item[1]} reports · ${item[2]}</span></div><div style="height:8px;background:#ddd"><div style="height:8px;width:${item[2]};background:#555"></div></div></article>
+      `).join('') + '<p class="fine">Perch keeps a link to every original report.</p>';
+      return;
+    }
+    if (issueCreated && currentTheme === 'checkout') {
+      detailContent.innerHTML = '<div class="created" style="display:block"><strong>Linear issue PER-284 created</strong>21 reports and 9 account links attached. <button class="btn sm ghost" data-toast="Opens PER-284 in Linear">Open in Linear</button></div>';
+      return;
+    }
+    detailContent.innerHTML = `
+      <div class="draft">
+        <span class="dn">The draft is editable and grounded in the selected theme. Nothing is sent until the user creates the issue.</span>
+        <label>Team</label><input value="Product · Checkout" aria-label="Linear team">
+        <label>Issue title</label><input value="${theme.draftTitle}" aria-label="Issue title">
+        <label>Description</label><textarea aria-label="Issue description">${theme.draftBody}</textarea>
+        <div class="draft-actions"><span class="fine" style="margin:0">${theme.evidence.length} quotes shown · all reports attached</span><button class="btn sm" data-create-issue>Create issue</button></div>
+      </div>`;
+    decorateNotes();
+  }
+
+  function setRange(range) {
+    const value = ranges[range];
+    if (!value) return;
+    document.querySelectorAll('[data-range]').forEach(button => button.classList.toggle('on', button.dataset.range === range));
+    ['reports', 'themes', 'risk', 'resolved'].forEach(key => {
+      document.querySelector(`[data-stat="${key}"]`).textContent = value[key];
+      document.querySelector(`[data-delta="${key}"]`).textContent = value[key + 'Delta'];
+    });
+    toast(`Showing ${range === 'today' ? 'today' : range === '7d' ? 'the last 7 days' : 'the last 30 days'}`);
+  }
+
+  function filterThemes() {
+    const query = document.getElementById('themeSearch').value.trim().toLowerCase();
+    const filter = document.querySelector('.filter-btn.on')?.dataset.filter || 'all';
+    let visible = 0;
+    document.querySelectorAll('.theme-row').forEach(row => {
+      const matchesText = row.textContent.toLowerCase().includes(query);
+      const matchesFilter = filter === 'all' || row.dataset.kind === filter;
+      const showRow = matchesText && matchesFilter;
+      row.style.display = showRow ? '' : 'none';
+      if (showRow) visible += 1;
+    });
+    document.querySelector('.empty-filter').style.display = visible ? 'none' : 'block';
+  }
+
+  function addChat(role, text, themeId = '') {
+    const messages = document.getElementById('chatMessages');
+    const prompts = messages.querySelector('.prompt-row');
+    const msg = document.createElement('div');
+    msg.className = 'msg' + (role === 'you' ? ' user' : '');
+    const who = document.createElement('div');
+    who.className = 'who'; who.textContent = role;
+    const body = document.createElement('div');
+    body.className = 'body'; body.textContent = text;
+    if (themeId) {
+      const cites = document.createElement('div');
+      cites.className = 'citations';
+      const citation = document.createElement('button');
+      citation.className = 'citation'; citation.dataset.openTheme = themeId; citation.textContent = 'Open supporting reports';
+      cites.appendChild(citation); body.appendChild(cites);
+    }
+    msg.append(who, body);
+    messages.insertBefore(msg, prompts);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function runPrompt(prompt) {
+    const answers = {
+      accounts: ['Which accounts are affected?', 'Nine accounts are affected. Northstar Health, Orbit Labs, and Cedar & Co represent $3.36k of the $8.1k MRR at risk.', 'checkout'],
+      sources: ['Show the source mix', 'Twelve reports came from App Store reviews, six from Zendesk, and three from Intercom. All three sources mention failure after biometric authentication.', 'checkout'],
+      brief: ['Write a planning brief', 'Planning brief ready: checkout failures began after iOS 18.5, affect 9 accounts, and reproduce after Face ID. Fix this before the next upgrade campaign.', 'checkout']
+    };
+    const answer = answers[prompt];
+    if (!answer) return;
+    addChat('you', answer[0]);
+    window.setTimeout(() => addChat('Perch', answer[1], answer[2]), 220);
+  }
+
   document.addEventListener('click', e => {
     const dot = e.target.closest('.dn-dot');
     document.querySelectorAll('.dn.open').forEach(d => { if (!dot || d !== dot.parentElement) d.classList.remove('open'); });
     if (dot) { dot.parentElement.classList.toggle('open'); return; }
+    const themeRow = e.target.closest('[data-theme]');
+    if (themeRow) { openTheme(themeRow.dataset.theme); return; }
+    const open = e.target.closest('[data-open-theme]');
+    if (open) { openTheme(open.dataset.openTheme); return; }
+    const draft = e.target.closest('[data-draft-theme]');
+    if (draft) { openTheme(draft.dataset.draftTheme, 'draft'); return; }
+    if (e.target.closest('[data-close-drawer]')) { closeDrawer(); return; }
+    const detailTab = e.target.closest('[data-detail-tab]');
+    if (detailTab) { currentDetailTab = detailTab.dataset.detailTab; renderDetail(); return; }
+    if (e.target.closest('[data-create-issue]')) { issueCreated = true; renderDetail(); toast('Linear issue PER-284 created with 21 reports attached'); return; }
+    const range = e.target.closest('[data-range]');
+    if (range) { setRange(range.dataset.range); return; }
+    const filter = e.target.closest('[data-filter]');
+    if (filter) { document.querySelectorAll('[data-filter]').forEach(button => button.classList.toggle('on', button === filter)); filterThemes(); return; }
+    const prompt = e.target.closest('[data-prompt]');
+    if (prompt) { runPrompt(prompt.dataset.prompt); return; }
     const g = e.target.closest('[data-goto]');
     if (g) { show(g.dataset.goto); return; }
     const tt = e.target.closest('[data-toast]');
     if (tt) toast(tt.dataset.toast);
+  });
+
+  document.getElementById('themeSearch').addEventListener('input', filterThemes);
+  document.getElementById('chatForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const input = document.getElementById('chatInput');
+    const question = input.value.trim();
+    if (!question) return;
+    addChat('you', question);
+    input.value = '';
+    window.setTimeout(() => addChat('Perch', 'The checkout spike is the strongest change in the current range. I found 21 linked reports and 9 affected accounts.', 'checkout'), 220);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeDrawer();
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.product-preview')) show('app');
   });
   document.getElementById('notesToggle').addEventListener('change', e =>
     document.body.classList.toggle('notes', e.target.checked));
@@ -343,6 +775,7 @@
     segBtns.forEach(x => x.classList.toggle('active', x === b));
     document.body.classList.toggle('tight', b.dataset.w === 'tight');
     document.body.classList.toggle('mobile', b.dataset.w === 'mobile');
+    closeDrawer();
   }));
   document.getElementById('squareToggle').addEventListener('change', e =>
     document.body.classList.toggle('square', e.target.checked));
