@@ -4,17 +4,17 @@ An agent skill for producing lo-fi, interactive grayscale wireframes (marketing 
 
 ## Example
 
-A fictional product ("Perch", a customer feedback inbox), wireframed with this skill. Source: [`example/index.html`](example/index.html).
+A fictional product ("Perch", a customer feedback inbox), wireframed with this skill as a richer interactive prototype. Source: [`example/index.html`](example/index.html).
 
-A site page at the default desktop width (1200px). The dark deck bar is the review apparatus: page tabs on the left; Desktop / Tight / Mobile width presets, a Square corners toggle, and the Notes toggle on the right.
+The marketing page uses a working product preview instead of a placeholder image. The dark deck bar is the review apparatus: page tabs on the left; Desktop / Tight / Mobile width presets, a Square corners toggle, and the Notes toggle on the right.
 
 ![Site wireframe: Perch home page](assets/example-home.png)
 
-An app screen (1360px, 3-column shell with a chat panel) with Notes on: annotations become numbered dots; click one for its bubble.
+The app screen is a demoable customer-signal workflow: change the time range, filter and search themes, inspect linked evidence and source mix, review an editable Linear draft, and ask follow-up questions in the assistant panel. With Notes on, annotations become numbered dots; click one for its bubble.
 
 ![App wireframe: Perch inbox with a design note open](assets/example-app-notes.png)
 
-The same app screen under the Mobile preset (390px, iPhone logical width): columns stack and the shell collapses to one column with the sidebar as a top nav row.
+The same workflow under the Mobile preset (390px, iPhone logical width): metrics reflow, theme rows simplify, and the shell collapses to one column with the sidebar as a top nav row.
 
 <img src="assets/example-mobile.png" width="390" alt="Mobile preview: Perch inbox at 390px">
 
